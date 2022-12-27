@@ -6,6 +6,7 @@ services:
       context: ./laravel
     image: keycloak-app-back
     container_name: keycloak-app-back
+    entrypoint: /app/.docker/entrypoint.sh
     ports:
       - 8000:8000
     volumes:
@@ -18,6 +19,7 @@ services:
       context: ./next
     image: keycloak-app-front
     container_name: keycloak-app-front
+    entrypoint: /app/.docker/entrypoint.sh
     ports:
       - 3000:3000
     volumes:
@@ -37,17 +39,20 @@ services:
       - database-data:/var/lib/mysql
 
   keycloak:
-    image: jboss/keycloak:16.1.1
+    image: quay.io/keycloak/keycloak:20.0.2
+    container_name: keycloak
+    command: 
+      - start-dev 
     environment:
-      - KEYCLOAK_USER=admin
-      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
       - DB_VENDOR=mysql
       - DB_ADDR=database
       - DB_PORT=3306
       - DB_USER=root
       - DB_PASSWORD=root
     ports:
-      8080:8080
+      - 8080:8080
     depends_on:
       - database
 
