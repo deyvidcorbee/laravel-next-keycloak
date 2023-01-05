@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/auth-context";
 export default function Header() {
 
     const { user, logout, login } = React.useContext(AuthContext);
-
+    
     return (
         <nav className="bg-orange-500 pl-10 py-5 flex justify-between px-10 mb-5">
             {user ? (

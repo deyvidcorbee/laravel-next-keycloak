@@ -26,7 +26,7 @@ export default function AuthProvider({ children }) {
     const logout = () => {
         keycloak.logout({redirectUri: 'http://localhost:3000/welcome'});
     }
-
+    console.log(keycloak?.token);
     return (
         <AuthContext.Provider value={{user: keycloak?.idTokenParsed, logout, login}}>
             {children}

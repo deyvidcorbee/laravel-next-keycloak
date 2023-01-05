@@ -13,6 +13,8 @@ services:
       - ./laravel:/app
     depends_on:
       - database
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   front:
     build:
@@ -47,6 +49,7 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
       - DB_VENDOR=mysql
+      - DB_DATABASE=keycloak_admin
       - DB_ADDR=database
       - DB_PORT=3306
       - DB_USER=root
