@@ -13,9 +13,11 @@ export default function App({ Component, pageProps: {session, ...pageProps} }) {
   return (
     <ReactKeycloakProvider 
       authClient={keycloakInstance} 
+      autoRefreshToken={false}
+      LoadingComponent={<Component {...pageProps} />}
       initOptions={{ 
         onLoad: 'check-sso',
-        silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html'
+        silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
       }}>
       <AuthProvider>
         <Component {...pageProps} />

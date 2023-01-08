@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function listAll(): JsonResponse
     {
-        return response()->json([]);
+        return response()->json(User::all());
     }
 
     public function create(Request $request): JsonResponse

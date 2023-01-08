@@ -16,7 +16,6 @@ export default function AuthProvider({ children }) {
         if (initialized && !keycloak.authenticated && publicRoutes.indexOf(router.asPath) === -1) {
             login();
         }
-
     }, [initialized]);
 
     const login = () => {
@@ -26,9 +25,9 @@ export default function AuthProvider({ children }) {
     const logout = () => {
         keycloak.logout({redirectUri: 'http://localhost:3000/welcome'});
     }
-    console.log(keycloak?.token);
+
     return (
-        <AuthContext.Provider value={{user: keycloak?.idTokenParsed, logout, login}}>
+        <AuthContext.Provider value={{user: keycloak?.idTokenParsed, logout, login, keycloak}}>
             {children}
         </AuthContext.Provider>
     );
