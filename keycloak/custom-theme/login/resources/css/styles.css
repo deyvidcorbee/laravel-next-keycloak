@@ -1,0 +1,41 @@
+
+:root {
+    --pf-global--primary-color--100: #f97315 !important;
+    --pf-global--primary-color--200: #d05f0d !important;
+}
+
+#kc-header {
+    opacity: 0;
+}
+
+body {
+    background: #ffb47e !important;
+}
+
+.card-pf {
+    border-radius: 10px;
+    border: none;
+    max-width: 450px;
+}
+
+.pf-c-button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pf-c-form-control {
+    padding: 10px !important;
+    outline: none;
+    height: 45px !important;
+    border-radius: 5px;
+    border: 1px solid rgb(207, 207, 207);
+}
+
+.pf-c-form-control:focus {
+    border: 2px solid #f97315;
+}
+
+.form-group > label, .pf-c-form__label {
+    font-size: 16px;
+    color: gray;
+}

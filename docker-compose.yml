@@ -58,6 +58,8 @@ services:
       - 8080:8080
     depends_on:
       - database
+    volumes:
+      - ./keycloak/custom-theme:/opt/keycloak/themes/custom-theme
 
 volumes:
   database-data:
